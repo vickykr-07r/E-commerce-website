@@ -1,5 +1,5 @@
 import User from "../Models/user.model.js";
-import bcrypt from "bcrypt"
+import bcrypt, { hash } from "bcrypt"
 import jwt from "jsonwebtoken"
 export const Register=async(req,res)=>{
     try {
@@ -49,8 +49,41 @@ try {
     })
     }
 
-    
+    const hassedpassword=await bcrypt.compare(password,existuser.password)
+    if(!hassedpassword){
+        return res.status(400).json({
+            message:"wrong password"
+        })
+    }
+
+    const token=jwt.sign({id:existuser._id},process.env.JWT_SECRET_KEY,{expiresIn:"7d"})
+
+   res.cookie("token", token, {
+    httpOnly: true,
+    secure: true,
+    sameSite: "strict"
+})
+
+    return res.status(200).json({user:existuser,message:"login successfully"})
 } catch (error) {
-    
+    console.log(error)
+        return res.status(500).json({
+            message:`error on login ${error}`
+        })
 }
+}
+
+export const logout=async(req,res)=>{
+    try {
+        res.clearCookie("token")
+
+        return res.status(200).json({
+            message:"logout successfully"
+        })
+    } catch (error) {
+         console.log(error)
+        return res.status(500).json({
+            message:`error on logout ${error}`
+        })
+    }
 }
