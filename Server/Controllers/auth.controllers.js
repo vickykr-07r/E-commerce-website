@@ -24,7 +24,7 @@ export const Register=async(req,res)=>{
 
         res.cookie("token",token,{
             httpOnly:true,
-            secure:true,
+            secure:false,
             sameSite:"strict"
         })
 
@@ -60,7 +60,7 @@ try {
 
    res.cookie("token", token, {
     httpOnly: true,
-    secure: true,
+    secure: false,
     sameSite: "strict"
 })
 
@@ -87,3 +87,38 @@ export const logout=async(req,res)=>{
         })
     }
 }
+
+export const googleauth = async (req, res) => {
+  try {
+    const { name, email } = req.body;
+
+    let user = await User.findOne({ email });
+
+    if (!user) {
+      user = await User.create({
+        name,
+        email,
+      });
+    }
+
+    const token = jwt.sign(
+      { id: user._id },
+      process.env.JWT_SECRET_KEY,
+      { expiresIn: "7d" }
+    );
+
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: false,
+      sameSite: "strict",
+    });
+
+    return res.status(200).json(user);
+
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: `error on google login ${error.message}`,
+    });
+  }
+};

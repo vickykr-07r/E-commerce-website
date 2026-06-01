@@ -117,4 +117,100 @@
     text-decoration:none;
     font-weight:600;
 }
+@media (max-width:768px){
+    .nav{
+        width:95%;
+        height:60px;
+    }
 
+    .navleft span{
+        font-size:1.8rem;
+    }
+
+    .navdown h1{
+        font-size:2rem;
+    }
+
+    .box{
+        max-width:380px;
+        padding:25px;
+    }
+}
+
+@media (max-width:480px){
+    .container{
+        padding:20px 10px;
+    }
+
+    .nav{
+        width:100%;
+        height:55px;
+    }
+
+    .navleft span{
+        font-size:1.5rem;
+    }
+
+    .navdown{
+        margin-bottom:20px;
+    }
+
+    .navdown h1{
+        font-size:1.6rem;
+    }
+
+    .navdown p{
+        font-size:0.9rem;
+        padding:0 10px;
+    }
+
+    .box{
+        max-width:100%;
+        padding:20px;
+        border-radius:15px;
+    }
+
+    .google button{
+        height:48px;
+        font-size:14px;
+    }
+
+    .google button img{
+        width:20px;
+        height:20px;
+    }
+
+    .form input,
+    .form button{
+        height:48px;
+        font-size:14px;
+    }
+
+    .navigate{
+        font-size:0.9rem;
+        line-height:1.5;
+    }
+}
+
+@media (max-width:320px){
+    .navleft span{
+        font-size:1.3rem;
+    }
+
+    .navdown h1{
+        font-size:1.4rem;
+    }
+
+    .box{
+        padding:15px;
+    }
+
+    .google button{
+        font-size:13px;
+        gap:6px;
+    }
+
+    .navigate{
+        font-size:0.8rem;
+    }
+}

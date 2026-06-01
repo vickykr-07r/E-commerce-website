@@ -12,7 +12,6 @@ email:{
 },
 password:{
     type:String,
-    required:true,
 },
 cartData:{
     type:Object,

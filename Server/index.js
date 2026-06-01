@@ -8,6 +8,12 @@ import cookieParser from "cookie-parser";
 app.use(express.json())
 app.use(cookieParser())
 
+import cors from "cors"
+app.use(cors({
+    origin:"http://localhost:5173",
+    credentials:true
+}))
+
 import connect from "./Db/db.connect.js";
 
 import { authRouter } from "./Routes/auth.routes.js";
