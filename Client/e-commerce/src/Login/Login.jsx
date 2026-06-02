@@ -1,27 +1,33 @@
 import axios from "axios"
 import Style from "../Login/Login.module.css"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useContext, useState } from "react"
 import { ServerContext } from "../Context/ServerContext.jsx"
 import { signInWithPopup } from "firebase/auth"
 import { auth, provider } from "../Config/firebase.js"
+import { useDispatch } from "react-redux"
+import { setUserData } from "../Redux/userSlice.js"
 function Login(){
     let {Serverurl}=useContext(ServerContext)
+    const dispatch=useDispatch()
+    const navigate=useNavigate()
     const [data,setData]=useState({
         email:"",
         password:""
     })
+
     const handlechange=(e)=>{
         setData({...data,[e.target.name]:e.target.value})
     }
     const handlelogin=async()=>{
         try {
             const result=await axios.post(`${Serverurl}/api/auth/login`,data,{withCredentials:true})
-            console.log(result.data)
+            dispatch(setUserData(result.data))
             setData({...data,
                 email:"",
                 password:""
             })
+            navigate("/")
         } catch (error) {
             console.log(error)
         }
@@ -34,7 +40,8 @@ function Login(){
                 let name=user.displayName
                 let email=user.email
              const result=await axios.post(`${Serverurl}/api/auth/googlelogin`,{name:name,email:email},{withCredentials:true})
-             console.log(result)
+             dispatch(setUserData(result.data))
+             navigate("/")
         } catch (error) {
             console.log(error)
         }

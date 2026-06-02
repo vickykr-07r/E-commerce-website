@@ -19,6 +19,9 @@ import connect from "./Db/db.connect.js";
 import { authRouter } from "./Routes/auth.routes.js";
 app.use("/api/auth",authRouter)
 
+import { userRouter } from "./Routes/user.routes.js";
+app.use("/api/user",userRouter)
+
 
 
 app.listen(process.env.PORT,(req,res)=>{

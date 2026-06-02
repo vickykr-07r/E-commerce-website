@@ -1,12 +1,16 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Style from "../Register/Register.module.css"
 import axios from "axios"
 import { useContext, useState } from "react"
 import { ServerContext } from "../Context/ServerContext.jsx"
 import { signInWithPopup } from "firebase/auth"
 import { auth, provider } from "../Config/firebase.js"
+import { useDispatch } from "react-redux"
+import { setUserData } from "../Redux/userSlice.js"
 function Register(){
     const {Serverurl}=useContext(ServerContext)
+    const dispatch=useDispatch()
+    const navigate=useNavigate()
     const [data,setData]=useState({
         name:"",
         email:"",
@@ -15,7 +19,8 @@ function Register(){
     const handleregister=async()=>{
         try {
             const result=await axios.post(`${Serverurl}/api/auth/register`,data,{withCredentials:true})
-              console.log(result.data)
+              dispatch(setUserData(result.data))
+              navigate("/")
         } catch (error) {
            
   console.log("Full Error:", error);
@@ -33,7 +38,8 @@ function Register(){
                 let name=user.displayName
                 let email=user.email
              const result=await axios.post(`${Serverurl}/api/auth/googlelogin`,{name:name,email:email},{withCredentials:true})
-             console.log(result)
+             dispatch(setUserData(result.data))
+             navigate("/")
             } catch (error) {
                 console.log(error)
             }
