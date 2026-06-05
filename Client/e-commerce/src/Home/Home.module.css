@@ -1,4 +1,14 @@
 .container{
     min-height:100vh;
-    background:linear-gradient(135deg,#0f172a,#1e293b,#334155);
+    background:#0f172a;
+}
+
+.heroSection{
+    width:90%;
+    margin:auto;
+    min-height:calc(100vh - 80px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:50px;
 }

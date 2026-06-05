@@ -1,0 +1,15 @@
+.Backgroundimage{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.Backgroundimage img{
+    width:100%;
+    max-width:550px;
+    height:650px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.4);
+}
