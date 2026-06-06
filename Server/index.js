@@ -10,7 +10,7 @@ app.use(cookieParser())
 
 import cors from "cors"
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin:["http://localhost:5173","http://localhost:5174"],
     credentials:true
 }))
 
@@ -21,7 +21,7 @@ app.use("/api/auth",authRouter)
 
 import { userRouter } from "./Routes/user.routes.js";
 app.use("/api/user",userRouter)
-
+ 
 
 
 app.listen(process.env.PORT,(req,res)=>{

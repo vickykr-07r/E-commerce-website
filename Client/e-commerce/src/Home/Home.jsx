@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Background from "../Component/Background.jsx"
 import Hero from "../Component/Hero.jsx"
 import Nav from "../Component/Nav.jsx"
@@ -24,6 +24,14 @@ function Home(){
 ];
 
 let [heroCount,setHeroCount]=useState(0);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setHeroCount((prev) => (prev + 1) % 4);
+  }, 3000);
+
+  return () => clearInterval(interval);
+}, []);
    return (
 <div className={Style.container}>
   <Nav />

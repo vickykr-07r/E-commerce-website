@@ -13,6 +13,6 @@ function Background({ heroCount }) {
       <img src={images[heroCount]} alt="background" />
     </div>
   );
-}
+} 
 
 export default Background;
