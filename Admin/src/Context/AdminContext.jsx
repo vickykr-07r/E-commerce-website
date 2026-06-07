@@ -8,28 +8,28 @@ function Admincontext({ children }) {
   const [adminData, setAdminData] = useState(null);
 
   const { serverUrl } = useContext(AdminContext);
+  
+  const getAdmin = async () => {
+    try {
+      const result = await axios.get(`${serverUrl}/api/user/getadmin`, {
+        withCredentials: true,
+      });
+
+      setAdminData(result.data);
+      console.log(result.data);
+    } catch (error) {
+      console.log(error);
+      console.log(error.response?.data);
+      console.log(error.message);
+    }
+  };
 
   useEffect(() => {
-    const getAdmin = async () => {
-      try {
-        const result = await axios.get(`${serverUrl}/api/user/getadmin`, {
-          withCredentials: true,
-        });
-
-        setAdminData(result.data);
-        console.log(result.data);
-      } catch (error) {
-        console.log(error);
-        console.log(error.response?.data);
-  console.log(error.message);
-      }
-    };
-
     getAdmin();
   }, []);
 
   return (
-    <adminDataContext.Provider value={{ adminData, setAdminData }}>
+    <adminDataContext.Provider value={{ adminData, setAdminData, getAdmin }}>
       {children}
     </adminDataContext.Provider>
   );

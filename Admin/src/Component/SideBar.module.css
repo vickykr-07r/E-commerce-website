@@ -1,0 +1,64 @@
+.sidebar{
+    width:270px;
+    min-height:100vh;
+    padding:25px 15px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border-right:1px solid rgba(255,255,255,0.15);
+    box-shadow:0 8px 32px rgba(0,0,0,0.15);
+}
+
+.additem,
+.listitem,
+.orderitem{
+    margin-bottom:18px;
+    border-radius:18px;
+    overflow:hidden;
+    transition:all 0.35s ease;
+}
+
+.additem span,
+.listitem span,
+.orderitem span{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:18px 20px;
+    color:#ffffff;
+    font-size:1rem;
+    font-weight:600;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:18px;
+    cursor:pointer;
+    transition:all 0.35s ease;
+}
+
+.additem span svg,
+.listitem span svg,
+.orderitem span svg{
+    font-size:1.3rem;
+}
+
+.additem span:hover,
+.listitem span:hover,
+.orderitem span:hover{
+    background:rgba(255,255,255,0.18);
+    transform:translateX(8px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+@media(max-width:768px){
+    .sidebar{
+        width:100%;
+        min-height:auto;
+        padding:15px;
+    }
+
+    .additem span,
+    .listitem span,
+    .orderitem span{
+        padding:15px 18px;
+    }
+}

@@ -2,12 +2,18 @@ import axios from "axios";
 import Style from "../Login/Login.module.css";
 import { useContext, useState } from "react";
 import { AdminContext } from "../Context/AuthContext";
+import { Navigate, useNavigate } from "react-router-dom";
+import { adminDataContext } from "../Context/AdminContext";
 function Login() { 
     let {serverUrl}=useContext(AdminContext)
-  const [data, setData] = useState({
+    let naviagte=useNavigate();
+    let{adminData,getAdmin}=useContext(adminDataContext)
+    const [data, setData] = useState({
     email: "",
     password: "",
-  });
+    });
+
+
 
   const handlechange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -20,8 +26,11 @@ function Login() {
       "http://localhost:8080/api/auth/adminlogin",
       data,{withCredentials:true}
     );
-
+   
     console.log(res.data);
+    getAdmin()
+    naviagte("/")
+    
   } catch (error) {
     console.log(error.response);
     console.log(error.response.data);
