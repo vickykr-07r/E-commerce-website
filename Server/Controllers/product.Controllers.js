@@ -18,7 +18,7 @@ export const addProduct=async(req,res)=>{
             subCategory,
             sizes:JSON.parse(sizes),
             bestSeller:bestSeller==="true" ? true:false,
-            date:Date.now,
+            date:Date.now(),
             image1,
             image2,
             image3,
