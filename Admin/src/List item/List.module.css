@@ -1,0 +1,143 @@
+.container{
+    width:100%;
+    min-height:100vh;
+}
+.container{
+    background:linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b,
+        #312e81
+    );
+}
+
+.nav{
+    width:100%;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.box{
+    display:flex;
+    width:100%;
+    min-height:calc(100vh - 70px);
+    padding:20px;
+    gap:20px;
+}
+
+@media (max-width:768px){
+    .box{
+        flex-direction:column;
+        padding:15px;
+        gap:15px;
+    }
+}
+.boxleft{
+    width:250px;
+}
+
+.boxright{
+    flex:1;
+    padding:20px;
+}
+
+.productlist{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.productlistleft{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:15px;
+    padding:15px 20px;
+    transition:0.3s ease;
+}
+
+.productlistleft:hover{
+    transform:translateY(-3px);
+    background:rgba(255,255,255,0.12);
+}
+
+.a{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.productlistleft1 img{
+    width:90px;
+    height:90px;
+    object-fit:cover;
+    border-radius:12px;
+    border:2px solid rgba(255,255,255,0.2);
+}
+
+.productlistleft2 h1{
+    font-size:20px;
+    color:white;
+    margin-bottom:8px;
+}
+
+.productlistleft2 p{
+    color:#cbd5e1;
+    margin-bottom:8px;
+}
+
+.productlistleft2 span{
+    color:#22c55e;
+    font-size:18px;
+    font-weight:600;
+}
+
+.productlistright1{
+    font-size:32px;
+    color:#ef4444;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.productlistright1:hover{
+    transform:scale(1.15);
+}
+
+.noProduct{
+    width:100%;
+    height:60vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.noProduct h1{
+    color:white;
+    font-size:32px;
+}
+
+@media(max-width:768px){
+
+    .boxleft{
+        width:100%;
+    }
+
+    .productlistleft{
+        flex-direction:column;
+        gap:15px;
+        text-align:center;
+    }
+
+    .a{
+        flex-direction:column;
+    }
+
+    .productlistleft1 img{
+        width:120px;
+        height:120px;
+    }
+}
