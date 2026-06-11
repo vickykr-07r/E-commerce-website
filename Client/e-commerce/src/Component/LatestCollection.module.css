@@ -1,0 +1,56 @@
+.container {
+  width: 100%;
+  padding: 50px 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.heading {
+  text-align: center;
+}
+
+.heading h1 {
+  font-size: 2.5rem;
+  color:white;
+  margin-bottom: 10px;
+}
+
+.heading span {
+  font-size: 1rem;
+  color: white;
+}
+
+.cardd {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  justify-content: center;
+}
+
+.cardd {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+@media (max-width: 1024px) {
+  .cardd {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cardd {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .cardd {
+    grid-template-columns: 1fr;
+  }
+}

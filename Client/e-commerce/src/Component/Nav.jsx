@@ -39,20 +39,26 @@ function Nav() {
             <li>
               <button
                 onClick={() => {
-                  console.log(userData);
+                  navigate("/");
                 }}
               >
                 Home
               </button>
             </li>
             <li>
-              <button>Collections</button>
+              <button onClick={() => {
+                  navigate("/collection");
+                }}>Collections</button>
             </li>
             <li>
-              <button>About</button>
+              <button onClick={() => {
+                  navigate("/about");
+                }}>About</button>
             </li>
             <li>
-              <button>Contact</button>
+              <button onClick={() => {
+                  navigate("/contact");
+                }}>Contact</button>
             </li>
           </ul>
         </div>

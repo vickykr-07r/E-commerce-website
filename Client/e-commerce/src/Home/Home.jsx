@@ -3,6 +3,7 @@ import Background from "../Component/Background.jsx"
 import Hero from "../Component/Hero.jsx"
 import Nav from "../Component/Nav.jsx"
 import Style from "../Home/Home.module.css"
+import { LatestCollection } from "../Component/LatestCollection.jsx";
 function Home(){
    let heroData = [
   {
@@ -35,7 +36,6 @@ useEffect(() => {
    return (
 <div className={Style.container}>
   <Nav />
-
   <div className={Style.heroSection}>
     <Hero
       heroData={heroData}
@@ -45,6 +45,8 @@ useEffect(() => {
 
     <Background heroCount={heroCount} />
   </div>
+
+  <LatestCollection/>
 </div>
 
    )
