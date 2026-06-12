@@ -4,6 +4,7 @@ import Hero from "../Component/Hero.jsx"
 import Nav from "../Component/Nav.jsx"
 import Style from "../Home/Home.module.css"
 import { LatestCollection } from "../Component/LatestCollection.jsx";
+import { BestSeller } from "../Component/BestSeller.jsx";
 function Home(){
    let heroData = [
   {
@@ -47,6 +48,7 @@ useEffect(() => {
   </div>
 
   <LatestCollection/>
+  <BestSeller/>
 </div>
 
    )
