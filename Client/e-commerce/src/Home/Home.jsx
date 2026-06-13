@@ -5,6 +5,9 @@ import Nav from "../Component/Nav.jsx"
 import Style from "../Home/Home.module.css"
 import { LatestCollection } from "../Component/LatestCollection.jsx";
 import { BestSeller } from "../Component/BestSeller.jsx";
+import { Policy } from "../Our Policy/Policy.jsx";
+import { NewLetterBox } from "../Component/NewLetterBox.jsx";
+import { Footer } from "../Component/Footer.jsx";
 function Home(){
    let heroData = [
   {
@@ -49,6 +52,9 @@ useEffect(() => {
 
   <LatestCollection/>
   <BestSeller/>
+  <Policy/>
+  <NewLetterBox/>
+  <Footer/>
 </div>
 
    )

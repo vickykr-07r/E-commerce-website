@@ -8,6 +8,8 @@ import { useEffect } from 'react'
 
 export const shopDataContext=createContext()
 export const ShopContext = ({children}) => {
+    let[search,setSearch]=useState("");
+    let[showSearch,setShowSearch]=useState(false)
     let [products,setProducts]=useState([])
     let {Serverurl}=useContext(ServerContext)
     let currency="₹"
@@ -26,7 +28,7 @@ export const ShopContext = ({children}) => {
         getProducts()
     },[])
     let value={
-    products,setProducts,currency,delivery_fee,getProducts
+    products,setProducts,currency,delivery_fee,getProducts,search,showSearch,setSearch,setShowSearch
     }
   return (
     <shopDataContext.Provider value={value}>

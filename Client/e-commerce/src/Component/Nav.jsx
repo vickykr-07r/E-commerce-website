@@ -7,13 +7,15 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ServerContext } from "../Context/ServerContext.jsx";
 import { setUserData } from "../Redux/userSlice";
+import { shopDataContext } from "../Context/ShopContext.jsx";
 function Nav() {
   let { Serverurl } = useContext(ServerContext);
   const navigate = useNavigate();
   let { userData } = useSelector((state) => state.user);
   let dispatch = useDispatch();
-  const [showSearch, setShowSearch] = useState(false);
+  
   const [showProfile, setShowProfile] = useState(false);
+  let{search,setShowSearch,setSearch,showSearch}=useContext(shopDataContext)
   const handleLogout = async () => {
     try {
       const result = await axios.get(`${Serverurl}/api/auth/logout`, {
@@ -67,6 +69,7 @@ function Nav() {
           <span
             onClick={() => {
               setShowSearch((prev) => !prev);
+              navigate("/collection")
             }}
           >
             <IoSearchCircleOutline />
@@ -96,7 +99,7 @@ function Nav() {
 
       {showSearch && (
         <div className={Style.search}>
-          <input type="text" placeholder="Search Here.." />
+          <input type="text" placeholder="Search Here.." value={search} onChange={(e)=>setSearch(e.target.value)}/>
         </div>
       )}
 

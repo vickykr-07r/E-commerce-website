@@ -4,14 +4,17 @@ import Style from "../Collections/Collections.module.css";
 import { shopDataContext } from "../Context/ShopContext";
 import { Card } from "../Component/Card";
 export const Collections = () => {
-  let { products } = useContext(shopDataContext);
+  let { products,setSearch,search,showSearch,setShowSearch } = useContext(shopDataContext);
   let [filterProducts, setFilterProducts] = useState([]);
   let [category, setCategory] = useState([]);
   let [subCategory, setSubCategory] = useState([]);
   let [shortType, setShortType] = useState("relevant");
-
+  
   const applyFilter = () => {
     let productCopy = products.slice();
+    if(showSearch && search){
+      productCopy=productCopy.filter(item=>item.name.toLowerCase().includes(search.toLowerCase()))
+    }
     if (category.length > 0) {
       productCopy = productCopy.filter((item) =>
         category.includes(item.category),
@@ -46,7 +49,7 @@ export const Collections = () => {
   }, [products]);
   useEffect(() => {
     applyFilter();
-  }, [category, subCategory]);
+  }, [category, subCategory,search,showSearch]);
   return (
     <div className={Style.container}>
       <div className={Style.nav}>
