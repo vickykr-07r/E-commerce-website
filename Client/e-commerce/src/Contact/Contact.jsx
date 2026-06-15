@@ -1,7 +1,44 @@
 import React from 'react'
-
+import { NewLetterBox } from '../Component/NewLetterBox'
+import Style from "../Contact/Contact.module.css"
 export const Contact = () => {
   return (
-    <div>Contact</div>
+    <div className={Style.container}>
+
+      <div className={Style.heading}>
+        <h1>CONTACT US</h1>
+      </div>
+
+      <div className={Style.box}>
+      <div className={Style.boxleft}>
+       <img src="data:image/webp;base64,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" alt="" />
+      </div>
+      <div className={Style.boxright}>
+
+       <h1>Our Store</h1>
+
+       <div className={Style.city}>
+       <p>12345 Random Station</p>
+       <p>Random city State India</p>
+       </div>
+
+       <div className={Style.contact}>
+       <p>tel: +919000040000</p>
+       <p>Email:admin@gmail.com</p>
+       </div>
+
+       <div className={Style.lastData}>
+        <h1>Careers At One Cart</h1>
+        <p>Learn more about our teams and job openings</p>
+        <button>Explore Jobs</button>
+       </div>
+
+      </div>
+      
+      </div>
+
+      <NewLetterBox/>
+
+    </div>
   )
 }

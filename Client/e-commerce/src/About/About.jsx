@@ -1,5 +1,7 @@
 import React from "react";
 import Style from "../About/About.module.css";
+
+import { NewLetterBox } from "../Component/NewLetterBox";
 export const About = () => {
   return (
     <div className={Style.container}>
@@ -34,6 +36,27 @@ export const About = () => {
           </p>
         </div>
       </div>
+
+      <div className={Style.title}>
+       <h1>WHY CHOOSE US</h1>
+      </div>
+
+      <div className={Style.explain}>
+      <div className={Style.explainleft}>
+       <h1>Quality Assurance</h1>
+       <p>We guarantee quality through strict checks, reliable sourcing, and a commitment to customer satisfaction always.</p>
+      </div>
+      <div className={Style.explainmiddle}>
+      <h1>Convenience</h1>
+       <p>Shop easily with fast delivery, simple navigation, secure checkout, and everything you need in one place.</p>
+      </div>
+      <div className={Style.explainright}>
+       <h1>Exceptional Customer Service</h1>
+       <p>Our dedicated support team ensures quick responses, helpful solutions, and a smooth shopping experience every time.</p>
+      </div>
+      </div>
+
+      <NewLetterBox/>
     </div>
   );
 };

@@ -149,3 +149,112 @@
     line-height: 1.7;
   }
 }
+
+/* WHY CHOOSE US */
+
+.title {
+  text-align: center;
+  margin: 70px 0 40px;
+}
+
+.title h1 {
+  font-size: 38px;
+  color: #222;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.title h1::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: #ff6b00;
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
+  border-radius: 5px;
+}
+
+.explain {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 30px;
+  background: #111;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.explainleft,
+.explainmiddle,
+.explainright {
+  flex: 1;
+  padding: 40px 30px;
+  text-align: center;
+  background: linear-gradient(135deg, #0d2b36, #1c1c1c);
+  transition: 0.3s ease;
+}
+
+.explainleft,
+.explainmiddle {
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.explainleft:hover,
+.explainmiddle:hover,
+.explainright:hover {
+  background: linear-gradient(135deg, #ff6b00, #ff8c42);
+  transform: translateY(-5px);
+}
+
+.explain h1 {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.explain p {
+  color: #ddd;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.explainleft:hover p,
+.explainmiddle:hover p,
+.explainright:hover p,
+.explainleft:hover h1,
+.explainmiddle:hover h1,
+.explainright:hover h1 {
+  color: white;
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+  .explain {
+    flex-direction: column;
+  }
+
+  .explainleft,
+  .explainmiddle {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+@media (max-width: 768px) {
+  .title h1 {
+    font-size: 30px;
+  }
+
+  .explain h1 {
+    font-size: 22px;
+  }
+
+  .explain p {
+    font-size: 15px;
+  }
+}

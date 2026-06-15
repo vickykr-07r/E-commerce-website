@@ -9,6 +9,7 @@ import { Order } from "./Orders/Order.jsx";
 import { Product } from "./Product/Product.jsx";
 import { Contact } from "./Contact/Contact.jsx";
 import { useSelector } from "react-redux";
+import { ProductDetail } from "./Product Detail/ProductDetail.jsx";
 
 function App() {
   let { userData } = useSelector((state) => state.user);
@@ -24,6 +25,7 @@ function App() {
       <Route path="/order" element={<Order />} />
       <Route path="/product" element={<Product />} />
       <Route path="/contact" element={<Contact />} />
+       <Route path="/productdetail/:id" element={<ProductDetail />} />
     </Routes>
     </>
   );
