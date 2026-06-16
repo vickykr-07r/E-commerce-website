@@ -34,7 +34,7 @@ export const ProductDetail = () => {
 
   return (
     <div className={Style.container}>
-<h1>hello</h1>
+    
     </div>
   )
 }
