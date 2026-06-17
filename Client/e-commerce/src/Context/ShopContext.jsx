@@ -18,7 +18,6 @@ export const ShopContext = ({children}) => {
     const getProducts=async()=>{
         try {
             let result=await axios.get(`${Serverurl}/api/product/list`,{withCredentials:true})
-            console.log(result.data)
             setProducts(result.data)
         } catch (error) {
            console.log(error) 

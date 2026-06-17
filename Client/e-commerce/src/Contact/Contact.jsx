@@ -1,9 +1,14 @@
 import React from 'react'
 import { NewLetterBox } from '../Component/NewLetterBox'
 import Style from "../Contact/Contact.module.css"
+import Nav from '../Component/Nav'
 export const Contact = () => {
   return (
     <div className={Style.container}>
+
+      <div className={Style.nav}>
+        <Nav/>
+      </div>
 
       <div className={Style.heading}>
         <h1>CONTACT US</h1>

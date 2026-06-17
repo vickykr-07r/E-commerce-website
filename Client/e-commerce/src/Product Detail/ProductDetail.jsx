@@ -2,6 +2,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import Style from "../Product Detail/ProductDetail.module.css"
 import { useParams } from 'react-router-dom'
 import { shopDataContext } from '../Context/ShopContext'
+import { FaStar } from "react-icons/fa";
+import { FaStarHalfAlt } from "react-icons/fa";
+import Nav from '../Component/Nav';
 export const ProductDetail = () => {
     let {productId}=useParams()
     let {products}=useContext(shopDataContext)
@@ -31,10 +34,101 @@ export const ProductDetail = () => {
     useEffect(()=>{
         fetchProductData();
     },[productId,products])
-
-  return (
+   console.log(products)
+  return productData ? (
     <div className={Style.container}>
+      <div className={Style.nav}>
+      <Nav/>
+      </div>
     
+    <div className={Style.box}>
+    <div className={Style.left}>
+    <div className={Style.imagebox}>
+      <img src={image1} alt="" onClick={()=>{setImage(image1)}}/>
+      <img src={image2} alt="" onClick={()=>{setImage(image2)}}/>
+      <img src={image3} alt="" onClick={()=>{setImage(image3)}}/>
+      <img src={image4} alt="" onClick={()=>{setImage(image4)}}/>
+     </div>
+     <div className={Style.bigimagebox}>
+      <img src={image} alt="" />
+     </div>
+    </div>
+
+    <div className={Style.right}>
+     <div className={Style.rightheading}>
+     <h1>{productData.name.toUpperCase()}</h1>
+     </div>
+
+     <div className={Style.rightstar}>
+     <span><FaStar /></span>
+     <span><FaStar /></span>
+     <span><FaStar /></span>
+     <span><FaStar /></span>
+     <span><FaStarHalfAlt /></span>
+     </div>
+
+     <div className={Style.rightprice}>
+      ₹{productData.price}
+     </div>
+
+     <div className={Style.rightpara}>
+     <p>Best Quality And Daily use products and stylish, breathable cotton shirt with a modern slim fit. Easy to wash, super comfortable and designed for effortless style.</p>
+     </div>
+
+    <div className={Style.size}>
+     <h1>Select Size</h1>
+
+  <div className={Style.sizeBox}>
+    <button
+      className={size==="S" ? Style.active : ""}
+      onClick={()=>setSize("S")}
+    >
+      S
+    </button>
+
+    <button
+      className={size==="M" ? Style.active : ""}
+      onClick={()=>setSize("M")}
+    >
+      M
+    </button>
+
+    <button
+      className={size==="L" ? Style.active : ""}
+      onClick={()=>setSize("L")}
+    >
+      L
+    </button>
+
+    <button
+      className={size==="XL" ? Style.active : ""}
+      onClick={()=>setSize("XL")}
+    >
+      XL
+    </button>
+  </div>
+</div>
+
+     <div className={Style.button}>
+     <button>Add to cart</button>
+     </div>
+
+     <div className={Style.return}>
+      <p>100% Original Product</p>
+      <p>Cash On delivery Available on this product</p>
+      <p>Easy return and exchange policy within 7 days</p>
+     </div>
+
+    </div>
+     
+
+    </div>
+
+
+    </div>
+  ):( <div>
+      <h1>Hello world</h1>
+      
     </div>
   )
 }

@@ -1,115 +1,177 @@
-.container {
-  width: 90%;
-  margin: 30px auto;
-   background:#0f172a;
+.container{
+    width:100%;
+    min-height:100vh;
+    background:#0f172a;
 }
 
-.nav {
-  margin-bottom: 30px;
+.nav{
+    width:100%;
+    position:sticky;
+    top:0;
+    z-index:100;
 }
 
-.box {
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;
+.box{
+    width:95%;
+    max-width:1450px;
+    margin:30px auto;
+    display:flex;
+    gap:30px;
 }
 
-/* Sidebar */
-.sidebar {
-  width: 260px;
-  border: 1px solid #e5e5e5;
-  border-radius: 10px;
-  padding: 20px;
-  background-color: #fff;
+.sidebar{
+    width:280px;
+    background:#fff;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    height:fit-content;
+    position:sticky;
+    top:100px;
 }
 
-.sidebar h1 {
-  font-size: 24px;
-  margin-bottom: 25px;
-  color: #222;
+.sidebar h1{
+    font-size:28px;
+    color:#222;
+    margin-bottom:25px;
+    border-bottom:2px solid #eee;
+    padding-bottom:12px;
 }
 
-/* Categories & Subcategories */
 .categories,
-.subcategories {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-bottom: 30px;
+.subcategories{
+    margin-top:25px;
 }
 
 .categories h2,
-.subcategories h2 {
-  font-size: 18px;
-  color: #444;
-  margin-bottom: 8px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 8px;
+.subcategories h2{
+    font-size:20px;
+    color:#111;
+    margin-bottom:18px;
 }
 
 .categories label,
-.subcategories label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  color: #555;
+.subcategories label{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:14px 0;
+    font-size:16px;
+    color:#555;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.categories label:hover,
+.subcategories label:hover{
+    color:#000;
+    transform:translateX(5px);
 }
 
 .categories input,
-.subcategories input {
-  width: 17px;
-  height: 17px;
-  cursor: pointer;
+.subcategories input{
+    width:18px;
+    height:18px;
+    accent-color:#000;
+    cursor:pointer;
 }
 
-/* Right Section */
-.boxright {
-  flex: 1;
-  min-height: 600px;
-  border: 1px solid #e5e5e5;
-  border-radius: 10px;
-  padding: 20px;
-  background-color: #fff;
+.boxright{
+    flex:1;
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    gap:28px;
+    align-items:start;
 }
 
-/* Tablet */
-@media (max-width: 768px) {
-  .box {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-  }
-
-  .boxright {
-    width: 100%;
-  }
+.boxright>*{
+    transition:.3s;
 }
 
-/* Mobile */
-@media (max-width: 480px) {
-  .container {
-    width: 95%;
-  }
+.boxright>*:hover{
+    transform:translateY(-6px);
+}
 
-  .sidebar {
-    padding: 15px;
-  }
+@media(max-width:1000px){
 
-  .sidebar h1 {
-    font-size: 20px;
-  }
+    .box{
+        flex-direction:column;
+    }
 
-  .categories h2,
-  .subcategories h2 {
-    font-size: 16px;
-  }
+    .sidebar{
+        width:100%;
+        position:static;
+    }
 
-  .categories label,
-  .subcategories label {
-    font-size: 14px;
-  }
+    .categories,
+    .subcategories{
+        display:flex;
+        flex-wrap:wrap;
+        gap:15px;
+    }
+
+    .categories h2,
+    .subcategories h2{
+        width:100%;
+    }
+
+    .categories label,
+    .subcategories label{
+        margin:0;
+        background:#f5f5f5;
+        padding:10px 15px;
+        border-radius:8px;
+    }
+}
+
+@media(max-width:768px){
+
+    .box{
+        width:92%;
+    }
+
+    .sidebar{
+        padding:20px;
+    }
+
+    .sidebar h1{
+        font-size:24px;
+    }
+
+    .boxright{
+        grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
+        gap:20px;
+    }
+}
+
+@media(max-width:480px){
+
+    .box{
+        width:95%;
+        margin:20px auto;
+    }
+
+    .sidebar{
+        padding:15px;
+    }
+
+    .sidebar h1{
+        font-size:22px;
+    }
+
+    .categories h2,
+    .subcategories h2{
+        font-size:18px;
+    }
+
+    .categories label,
+    .subcategories label{
+        font-size:14px;
+        padding:8px 12px;
+    }
+
+    .boxright{
+        grid-template-columns:repeat(2,1fr);
+        gap:15px;
+    }
 }

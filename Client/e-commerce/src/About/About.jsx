@@ -2,9 +2,13 @@ import React from "react";
 import Style from "../About/About.module.css";
 
 import { NewLetterBox } from "../Component/NewLetterBox";
+import Nav from "../Component/Nav";
 export const About = () => {
   return (
     <div className={Style.container}>
+      <div className={Style.nav}>
+      <Nav/>
+      </div>
       <div className={Style.heading}>
         <h1>ABOUT US</h1>
       </div>
