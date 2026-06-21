@@ -268,3 +268,83 @@
   color: #666;
   line-height: 1.8;
 }
+
+.descriptionReview {
+  width: 90%;
+  max-width: 1400px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.Heading {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 25px;
+}
+
+.Heading button {
+  padding: 15px 30px;
+  border: none;
+  background: #f5f5f5;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.Heading button:first-child {
+  background: #111;
+  color: #fff;
+}
+
+.Heading button:hover {
+  background: #222;
+  color: #fff;
+}
+
+.desciptionreviewpara {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #666;
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .descriptionReview {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .Heading {
+    flex-wrap: wrap;
+  }
+
+  .Heading button {
+    flex: 1;
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .desciptionreviewpara {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+}
+
+@media (max-width: 480px) {
+  .Heading {
+    flex-direction: column;
+  }
+
+  .Heading button {
+    width: 100%;
+  }
+
+  .desciptionreviewpara {
+    font-size: 14px;
+  }
+}

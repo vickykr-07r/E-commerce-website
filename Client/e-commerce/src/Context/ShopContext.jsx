@@ -12,6 +12,7 @@ export const ShopContext = ({children}) => {
     let[showSearch,setShowSearch]=useState(false)
     let [products,setProducts]=useState([])
     let {Serverurl}=useContext(ServerContext)
+    let [cartItem,setCartItem]=useState({})
     let currency="₹"
     let delivery_fee=40
 
@@ -23,12 +24,52 @@ export const ShopContext = ({children}) => {
            console.log(error) 
         }
     }
+
+    const Addtocart =(itemId,size)=>{
+    if(!size){
+     console.log("Select Product Size");
+     return;
+    }
+
+    let cartData=structuredClone(cartItem);
+
+    if(cartData[itemId]){
+     if(cartData[itemId][size]){
+      cartData[itemId][size] +=1;
+     }else{
+        cartData[itemId][size]=1;
+     }
+    }else{
+        cartData[itemId]={};
+        cartData[itemId][size]=1;
+    }
+    setCartItem(cartData);
+    console.log(cartData)
+    }
+
+    const getCartCount=()=>{
+        let totalCount=0;
+        for(const items in cartItem){
+            for(const item in cartItem[items]){
+                try {
+                    if(cartItem[items][item]>0){
+                        totalCount+=cartItem[items][item]
+                    }
+                } catch (error) {
+                    console.log(error)
+                }
+            }
+        }
+        return totalCount
+    }
+
     useEffect(()=>{
         getProducts()
     },[])
     let value={
-    products,setProducts,currency,delivery_fee,getProducts,search,showSearch,setSearch,setShowSearch
+    products,setProducts,currency,delivery_fee,getProducts,search,showSearch,setSearch,setShowSearch,Addtocart,getCartCount,setCartItem,cartItem
     }
+    
   return (
     <shopDataContext.Provider value={value}>
     {children}

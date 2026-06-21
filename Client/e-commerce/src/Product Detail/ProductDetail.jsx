@@ -5,9 +5,10 @@ import { shopDataContext } from '../Context/ShopContext'
 import { FaStar } from "react-icons/fa";
 import { FaStarHalfAlt } from "react-icons/fa";
 import Nav from '../Component/Nav';
+import { RelatedProduct } from '../Component/RelatedProduct';
 export const ProductDetail = () => {
     let {productId}=useParams()
-    let {products}=useContext(shopDataContext)
+    let {products,Addtocart,getCartCount,setCartItem}=useContext(shopDataContext)
     let [productData,setProductData]=useState(false)
     const[image,setImage]=useState("")
     const[image1,setImage1]=useState("")
@@ -34,7 +35,6 @@ export const ProductDetail = () => {
     useEffect(()=>{
         fetchProductData();
     },[productId,products])
-   console.log(products)
   return productData ? (
     <div className={Style.container}>
       <div className={Style.nav}>
@@ -110,7 +110,7 @@ export const ProductDetail = () => {
 </div>
 
      <div className={Style.button}>
-     <button>Add to cart</button>
+     <button onClick={()=>Addtocart(productData._id,size)}>Add to cart</button>
      </div>
 
      <div className={Style.return}>
@@ -124,7 +124,17 @@ export const ProductDetail = () => {
 
     </div>
 
+    <div className={Style.descriptionReview}>
 
+     <div className={Style.Heading}>
+      <button>Description</button>
+      <button>Review</button>
+     </div>
+    <div className={Style.desciptionreviewpara}>
+     Upgrade your wardrobe with this stylish slim-fit cotton shirt, available now on OneCart. Crafted from breathable, high-quality fabric, it offers all-day comfort and effortless style. Easy to maintain and perfect for any setting, this shirt is a must-have essential for those who value both fashion and function.
+    </div>
+    </div>
+    <RelatedProduct category={productData.category} subCategory={productData.subCategory} currentProductId={productData._id}/>
     </div>
   ):( <div>
       <h1>Hello world</h1>
