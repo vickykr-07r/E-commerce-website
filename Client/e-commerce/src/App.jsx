@@ -10,6 +10,7 @@ import { Product } from "./Product/Product.jsx";
 import { Contact } from "./Contact/Contact.jsx";
 import { useSelector } from "react-redux";
 import { ProductDetail } from "./Product Detail/ProductDetail.jsx";
+import { Cart } from "./Cart/Cart.jsx";
 
 function App() {
   let { userData } = useSelector((state) => state.user);
@@ -26,6 +27,7 @@ function App() {
       <Route path="/product" element={<Product />} />
       <Route path="/contact" element={<Contact />} />
        <Route path="/productdetail/:productId" element={<ProductDetail />} />
+       <Route path="/cart" element={<Cart />} />
     </Routes>
     </>
   );

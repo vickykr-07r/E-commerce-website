@@ -25,6 +25,9 @@ app.use("/api/user",userRouter)
 import { productRouter } from "./Routes/Product.routes.js";
 app.use("/api/product",productRouter)
 
+import { cartRouter } from "./Routes/cart.routes.js";
+app.use("/api/cart",cartRouter)
+
 app.listen(process.env.PORT,(req,res)=>{
 console.log("the app is started")
 connect();

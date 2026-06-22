@@ -91,7 +91,7 @@ function Nav() {
           )}
 
           <span>
-            <FaCartPlus />
+            <FaCartPlus onClick={()=>{navigate("/cart")}}/>
           </span>
         </div>
 

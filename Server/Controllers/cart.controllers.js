@@ -1,4 +1,4 @@
-import User from "../Models/user.model";
+import User from "../Models/user.model.js";
 
 export const addtocart=async(req,res)=>{
     try {
@@ -47,15 +47,24 @@ try {
     message:"cart updated"
   })
 } catch (error) {
-    
+    console.log(error)
+    return res.status(500).json({
+        message:`update cart error ${error}`
+    })
 }
 }
 
 
 export const getUserCart=async(req,res)=>{
     try {
-        
+        const userData=await User.findById(req.userId)
+        let cartData=await userData.cartData;
+
+        return res.status(200).json(cartData)
     } catch (error) {
-        
+        console.log(error)
+        return res.status(500).json({
+            message:`error on getUserCart ${error}`
+        })
     }
 }
