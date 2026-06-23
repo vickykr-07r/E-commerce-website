@@ -1,3 +1,162 @@
-.container{
-    background-color: rgb(178, 86, 86);
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background:rgb(112, 111, 111);
+}
+
+.nav {
+  width: 100%;
+}
+
+.box {
+  width: 90%;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.box > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.left1 img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.left2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.left2 p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.left2 span {
+  font-size: 16px;
+  color: #555;
+}
+
+.middle {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.middle input {
+  width: 80px;
+  padding: 8px;
+  font-size: 16px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.middle input:focus {
+  border-color: #000;
+}
+
+.delete {
+  font-size: 30px;
+  color: #e53935;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete:hover {
+  color: #b71c1c;
+  transform: scale(1.15);
+}
+
+.total {
+  width: 90%;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.total button {
+  padding: 14px 32px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.total button:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+.total button:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+  .total {
+    width: 95%;
+    align-items: center;
+  }
+
+  .total button {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .box {
+    width: 95%;
+  }
+
+  .box > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .left {
+    width: 100%;
+  }
+
+  .left1 img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .middle {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .middle input {
+    width: 100px;
+  }
+
 }

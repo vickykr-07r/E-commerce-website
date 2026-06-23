@@ -96,7 +96,7 @@ export const ShopContext = ({children}) => {
         }
     }
 
-    const getCartAmount=async()=>{
+    const getCartAmount=()=>{
         let totalAmount=0;
         for(const items in cartItem){
         let itemInfo=products.find((product)=>product._id===items);
