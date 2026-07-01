@@ -26,7 +26,7 @@ export const PlaceOrder = () => {
           <input type="text" placeholder="Country" />
         </div>
         <input type="text" placeholder="Phone Number"/>
-        <button type="submit">Place Order</button>
+        <button>Place Order</button>
       </form>
      </div>
     </div>
