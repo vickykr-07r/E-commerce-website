@@ -1,0 +1,165 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background:#0f172a;
+}
+
+.nav {
+  width: 100%;
+}
+
+.heading {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto 20px;
+}
+
+.heading h1 {
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+}
+
+.form {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+.form form {
+  width: 100%;
+  max-width: 550px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.name,
+.address,
+.code {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.form input {
+  width: 100%;
+  padding: 14px 15px;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+.form input:focus {
+  border-color: #000;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.form button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background: #000;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form button:hover {
+  background: #333;
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 992px) {
+  .heading h1 {
+    font-size: 1.8rem;
+  }
+
+  .form form {
+    max-width: 500px;
+  }
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+  .heading {
+    text-align: center;
+  }
+
+  .heading h1 {
+    font-size: 1.6rem;
+  }
+
+  .form {
+    width: 95%;
+  }
+
+  .form form {
+    padding: 22px;
+    gap: 16px;
+  }
+
+  .name,
+  .address,
+  .code {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .form input {
+    padding: 13px;
+    font-size: 14px;
+  }
+
+  .form button {
+    padding: 13px;
+    font-size: 15px;
+  }
+}
+
+/* ---------- Small Mobile ---------- */
+
+@media (max-width: 480px) {
+  .heading {
+    margin-top: 20px;
+  }
+
+  .heading h1 {
+    font-size: 1.4rem;
+  }
+
+  .form {
+    width: 96%;
+  }
+
+  .form form {
+    padding: 18px;
+    border-radius: 10px;
+  }
+
+  .form input {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .form button {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
