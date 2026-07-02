@@ -5,7 +5,7 @@ import Login from "./Login/Login.jsx";
 import GetuserData from "./Config/getuserdata.jsx";
 import { About } from "./About/About.jsx";
 import { Collections } from "./Collections/Collections.jsx";
-import { Order } from "./Orders/Order.jsx";
+import { Order } from "./Order/Order.jsx";
 import { Product } from "./Product/Product.jsx";
 import { Contact } from "./Contact/Contact.jsx";
 import { useSelector } from "react-redux";

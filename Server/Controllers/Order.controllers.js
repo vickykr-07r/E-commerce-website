@@ -24,3 +24,14 @@ export const placeOrder = async (req, res) => {
     return res.status(500).json({ message: "error on placing order" });
   }
 };
+
+export const userOrders = async (req, res) => {
+  try{
+    const userId = req.userId;
+    const orders = await Order.find({ userId });
+    return res.status(200).json( orders );
+  }catch(error){
+    console.log(error);
+    return res.status(500).json({ message: "error on fetching orders" });
+  }
+}
