@@ -1,0 +1,160 @@
+.Container {
+  width: 100%;
+  min-height: 100vh;
+  background: #0f172a;
+}
+
+.nav {
+  width: 100%;
+}
+
+.status {
+  color: green;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.heading {
+  width: 90%;
+  margin: 30px auto;
+}
+
+.heading h2 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.box {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+.order {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 2;
+}
+
+.orderImage img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.orderDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.orderDetails h1 {
+  font-size: 22px;
+  color: #222;
+}
+
+.orderDetails p {
+  font-size: 16px;
+  color: #555;
+  margin: 0;
+}
+
+.middle {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.middle p {
+  color: green;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.trackBtn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.trackBtn:hover {
+  background: #333;
+}
+
+@media (max-width: 900px) {
+  .order {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .left {
+    width: 100%;
+  }
+
+  .middle {
+    justify-content: flex-start;
+  }
+
+  .right {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .trackBtn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .heading h2 {
+    font-size: 24px;
+  }
+
+  .left {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .orderImage img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .orderDetails h1 {
+    font-size: 18px;
+  }
+
+  .orderDetails p {
+    font-size: 14px;
+  }
+}

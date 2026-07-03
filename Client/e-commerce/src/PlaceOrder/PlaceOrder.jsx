@@ -21,7 +21,7 @@ export const PlaceOrder = () => {
     country:"",
     phoneNumber:""
   })
-  const { cartItems, products, getCartAmount, delivery_fee, setCartItem } = useContext(shopDataContext);
+  const { cartItem, products, getCartAmount, delivery_fee, setCartItem } = useContext(shopDataContext);
   const { Serverurl } = useContext(ServerContext);
  function handleInput(e) {
   setFormData({
@@ -33,25 +33,31 @@ export const PlaceOrder = () => {
 const onSubmitHandler = async (e) => {
   e.preventDefault();
 
+  
+
   try {
     let orderItems = [];
 
-    for (const items in cartItems) {
-      for (const item in cartItems[items]) {
-        if (cartItems[items][item] > 0) {
+    for (const productId in cartItem) {
+  for (const size in cartItem[productId]) {
+    if (cartItem[productId][size] > 0) {
 
-          const itemInfo = structuredClone(
-            products.find((product) => product.id === items)
-          );
+      const itemInfo = structuredClone(
+        products.find((product) => product._id === productId)
+      );
 
-          if (itemInfo) {
-            itemInfo.size = item;
-            itemInfo.quantity = cartItems[items][item];
-            orderItems.push(itemInfo);
-          }
-        }
+      if (itemInfo) {
+        itemInfo.size = size;
+        itemInfo.quantity = cartItem[productId][size];
+        orderItems.push(itemInfo);
       }
     }
+  }
+}
+
+    console.log("Cart Items:", cartItem);
+console.log("Products:", products);
+console.log("Order Items:", orderItems);
 
    let orderData = {
     address: formData,
@@ -82,6 +88,8 @@ const onSubmitHandler = async (e) => {
     console.error("Error occurred while placing the order:", err);
   }
 };
+
+
   return (
     <div className={Style.container}>
       <div className={Style.nav}>

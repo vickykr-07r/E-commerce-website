@@ -9,40 +9,36 @@ import axios from 'axios'
 export const Order = () => {
   let [orderData,setOrderData] = useState([])
   let{Serverurl}=useContext(ServerContext);
-  const loadOrderData=async()=>{
-    try{
-    const result=await axios.post(`${Serverurl}/api/order/userorder`,{},{withCredentials:true})
-    if (result.data.success) {
+ const loadOrderData = async () => {
+  try {
+    const result = await axios.post(`${Serverurl}/api/order/userorder`,{},{ withCredentials: true })
+    console.log(result.data[0].items);
 
-    let allOrderData = [];
+    if (result.data) {
+      let allOrdersItem = []
 
-    result.data.orders.forEach((order) => {
+      result.data.map((order) => {
+        order.items.map((item) => {
+          item['status'] = order.status
+          item['payment'] = order.payment
+          item['paymentMethod'] = order.paymentMethod
+          item['date'] = order.date
 
-        order.items.forEach((item) => {
+          allOrdersItem.push(item)
+        })
+      })
 
-            allOrderData.push({
-                ...item,
-                status: order.status,
-                payment: order.payment,
-                date: order.date,
-                paymentMethod: order.paymentMethod,
-            });
-
-        });
-
-    });
-
-    setOrderData(allOrderData.reverse());
-
-} 
-    }catch(error){
-     console.log(error)
+      setOrderData(allOrdersItem.reverse())
     }
+  } catch (error) {
+    console.log(error)
   }
+}
 
   useEffect(()=>{
     loadOrderData()
   },[])
+  
 
   return (
     <div className={Style.Container}>
@@ -56,7 +52,34 @@ export const Order = () => {
     </div>
 
     <div className={Style.box}>
-
+    {
+      orderData.map((item,index)=>{
+        return(
+          <div className={Style.order} key={index}>
+            <div className={Style.left}>
+             <div className={Style.orderImage}>
+            <img src={item.image1} alt="" />
+           </div>
+            <div className={Style.orderDetails}>
+              <h1>{item.name}</h1>
+              <p> ₹{item.price}</p>
+              <p>{item.quantity}</p>
+              <p>{item.size}</p>
+              <p>{new Date(item.date).toDateString()}</p>
+              <p>Payment Method: {item.paymentMethod}</p>
+            </div>
+            </div>
+            <div className={Style.middle}>
+            <p className={Style.status}>● {item.status}</p>
+            </div>
+            <div className={Style.right}>
+            <button className={Style.trackBtn} onClick={loadOrderData}>Track Order</button>
+            </div>
+           
+          </div>
+        )
+      })
+    }
     </div>
 
     </div>
