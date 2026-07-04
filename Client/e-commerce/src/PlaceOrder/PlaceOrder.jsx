@@ -30,6 +30,27 @@ export const PlaceOrder = () => {
   });
 }
 
+const initPay=(order)=>{
+const options={
+  key:import.meta.env.VITE_RAZORPAY_API_KEY,
+  amount:order.amount,
+  currency:order.currency,
+  name:"Order Payment",
+  description:"Order payment",
+  order_id:order.id,
+  receipt:order.receipt,
+  handler:async(response)=>{
+  console.log(response)
+
+  const rzp=new window.Razorpay(options)
+  rzp.open()
+  }
+}
+
+
+}
+}
+
 const onSubmitHandler = async (e) => {
   e.preventDefault();
 
@@ -80,6 +101,13 @@ console.log("Order Items:", orderItems);
       console.log(result.data.message)
     }
     break;
+
+    case "razorpay":
+      const resultRazorpay=await axios.post(`${Serverurl}/api/order/placeorderrazorpay`,{orderData},{withCredentials:true})
+      if(resultRazorpay.data){
+      console.log(resultRazorpay.data)
+      }
+      break;
 
   default:
     console.log("Invalid Payment Method");

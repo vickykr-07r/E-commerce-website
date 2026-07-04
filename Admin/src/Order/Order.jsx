@@ -24,6 +24,17 @@ export const Order = () => {
     }
   };
 
+  const statusHandler=async(e,orderId)=>{
+    try {
+      const result=await axios.put(`${serverUrl}/api/order/updatestatus`,{orderId,status:e.target.value},{withCredentials:true})
+      if(result.data){
+       await fetchallOrders()
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(() => {
     fetchallOrders();
   }, []);
@@ -105,8 +116,14 @@ export const Order = () => {
                     <p>₹{order.amount}</p>
                   </div>
 
-                  
-
+                  <div className={Style.fouth}>
+                    <select value={order.status} onChange={(e)=>{statusHandler(e,order._id)}}>
+                      <option value="Order Placed">Order Placed</option>
+                      <option value="Packing">Packing</option>
+                      <option value="Shipped">Shipped</option>
+                      <option value="Out For Delivery">Out For Delivery</option>
+                      <option value="Delivered">Delivered</option>
+                    </select>
                   </div>
                 </div>
               </div>
