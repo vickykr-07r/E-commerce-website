@@ -12,7 +12,7 @@ export const PlaceOrder = () => {
 
   const [method, setMethod] = useState("cod");
 
-  const [formData, setFormData] = useState({ 
+  const [formData, setFormData] = useState({  
     firstName: "",
     lastName: "",
     email: "",
