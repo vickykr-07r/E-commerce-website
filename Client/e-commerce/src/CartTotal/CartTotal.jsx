@@ -8,7 +8,7 @@ export const CartTotal = () => {
     <div className={Style.heading}>
      <h1>Cart Total</h1>
     </div>
-    <div className={Style.box}>
+    <div className={Style.box}> 
 
         <div className={Style.first}>
            <p>Subtotal</p>
