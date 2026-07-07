@@ -117,8 +117,8 @@ function Nav() {
             )}
 
             {userData && <li onClick={handleLogout}>Logout</li>}
-            <li>Orders</li>
-            <li>About</li>
+            <li onClick={()=>{navigate("/order")}}>Orders</li>
+            <li onClick={()=>{navigate("/about")}}>About</li>
           </ul>
         </div>
       )}

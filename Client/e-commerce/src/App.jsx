@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import { ProductDetail } from "./Product Detail/ProductDetail.jsx";
 import { Cart } from "./Cart/Cart.jsx";
 import { PlaceOrder } from "./PlaceOrder/PlaceOrder.jsx";
+import { NotFound } from "./Component/NotFound.jsx";
 
 function App() {
   let { userData } = useSelector((state) => state.user);
@@ -30,6 +31,7 @@ function App() {
        <Route path="/productdetail/:productId" element={<ProductDetail />} />
        <Route path="/cart" element={<Cart />} />
         <Route path="/placeorder" element={<PlaceOrder />} />
+        <Route path="*" element={<NotFound/>}/>
     </Routes>
     </>
   );

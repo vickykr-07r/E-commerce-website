@@ -60,6 +60,7 @@ export const PlaceOrder = () => {
               withCredentials: true,
             },
           );
+          console.log(verify.data)
 
           if (verify.data.success) {
             setCartItem({});

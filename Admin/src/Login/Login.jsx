@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { AdminContext } from "../Context/AuthContext";
 import { Navigate, useNavigate } from "react-router-dom";
 import { adminDataContext } from "../Context/AdminContext";
+import { toast } from "react-toastify";
 function Login() { 
     let {serverUrl}=useContext(AdminContext)
     let naviagte=useNavigate();
@@ -28,12 +29,14 @@ function Login() {
     );
    
     console.log(res.data);
+    toast.success("Admin Login Successfully")
     getAdmin()
     naviagte("/")
     
   } catch (error) {
     console.log(error.response);
     console.log(error.response.data);
+    toast.error("Login Failed")
   }
 };
 

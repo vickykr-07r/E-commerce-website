@@ -3,6 +3,7 @@ import Style from "../Component/Nav.module.css"
 import axios from "axios";
 import { AdminContext } from "../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 function Nav(){
     let{serverUrl}=useContext(AdminContext)
     let navigate=useNavigate()
@@ -11,6 +12,7 @@ function Nav(){
         let result=await axios.get(`${serverUrl}/api/auth/logout`,{withCredentials:true})
         console.log(result)
         navigate("/login")
+        toast.success("Logout Successfully")
     } catch (error) {
         console.log(error)
     }

@@ -117,9 +117,11 @@ export const ShopContext = ({children}) => {
         getProducts()
     },[])
 
-    useEffect(()=>{
-     getUserCart();
-    },[])
+    useEffect(() => {
+   if(userData){
+      getUserCart();
+   }
+}, [userData]);
     let value={
     products,setProducts,currency,delivery_fee,getProducts,search,showSearch,setSearch,setShowSearch,Addtocart,getCartCount,setCartItem,cartItem,updateQuantity,getCartAmount
     }
